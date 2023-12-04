@@ -8,12 +8,7 @@ def line_iterator() -> Iterator[str]:
 
 
 def check_win_count(game_info: dict) -> int:
-    value = 0
-    for number in game_info["numbers"]:
-        if number in game_info["winning_numbers"]:
-            value += 1
-            continue
-    return value
+    return len(game_info["numbers"].intersection(game_info["winning_numbers"]))
 
 
 def get_elements_in_line(line: str) -> dict:
@@ -21,7 +16,7 @@ def get_elements_in_line(line: str) -> dict:
     winning_numbers = re.findall(r"\d+", line[0])
     numbers = re.findall(r"\d+", line[1])
 
-    return {"winning_numbers": winning_numbers, "numbers": numbers}
+    return {"winning_numbers": set(winning_numbers), "numbers": set(numbers)}
 
 
 def process_input_count_wins() -> int:
@@ -57,6 +52,7 @@ def process_input_count_copies() -> int:
 
 def main():
     # Part 1
+
     sum_won_scratch_cards = process_input_count_wins()
     print(f"Sum of Scratch Card Wins: {sum_won_scratch_cards}")
 

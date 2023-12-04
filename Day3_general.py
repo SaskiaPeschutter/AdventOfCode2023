@@ -97,7 +97,7 @@ def main():
     sum_gear_ratio = process_input(main_search_string=star_search,
                                    condition_search_string=condition_search,
                                    condition_function=check_gear_condition)
-    print(f"Sum of gear ratio: {sum_gear_ratio}")  #
+    print(f"Sum of gear ratio: {sum_gear_ratio}")
 
 
 if __name__ == "__main__":
